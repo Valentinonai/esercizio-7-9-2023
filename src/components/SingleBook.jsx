@@ -1,19 +1,24 @@
 import { Component } from "react";
 import { Badge, Card, Col } from "react-bootstrap";
+import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
   state = {
     selected: false,
     borderColor: "transparent",
   };
+
   toggleClass = () => {
     this.state.selected
       ? this.setState({ selected: false, borderColor: "transparent" })
       : this.setState({ selected: true, borderColor: "red" });
   };
+  toggle = () => {
+    this.setState({ selected: false, borderColor: "transparent" });
+  };
   render() {
     return (
-      <Col xs="12" md="4">
+      <Col xs="12" sm="6" md="4" lg="3">
         <Card
           style={{
             overflow: "hidden",
@@ -47,6 +52,7 @@ class SingleBook extends Component {
               <Badge bg="dark">{this.props.book.price} $</Badge>
             </Card.Text>
           </Card.Body>
+          {this.state.selected && <CommentArea iD={this.props.book.asin} toggle={this.toggle} />}
         </Card>
       </Col>
     );
