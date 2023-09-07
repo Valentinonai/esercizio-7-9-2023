@@ -72,6 +72,7 @@ class AddComment extends Component {
                   placeholder="Comment"
                   value={this.state.comment}
                   onChange={(event) => this.setState({ comment: event.target.value })}
+                  required
                 />
               </Form.Group>
 
@@ -84,6 +85,7 @@ class AddComment extends Component {
                   max={5}
                   value={this.state.rate}
                   onChange={(event) => this.setState({ rate: event.target.value })}
+                  required
                 />
               </Form.Group>
               <Button variant="outline-dark" type="submit">
