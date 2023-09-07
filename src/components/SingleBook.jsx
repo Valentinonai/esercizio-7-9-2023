@@ -14,7 +14,9 @@ class SingleBook extends Component {
       : this.setState({ selected: true, borderColor: "red" });
   };
   toggle = () => {
-    this.setState({ selected: false, borderColor: "transparent" });
+    this.setState({ selected: false, borderColor: "transparent" }, () =>
+      this.setState({ selected: true, borderColor: "red" })
+    );
   };
   render() {
     return (
