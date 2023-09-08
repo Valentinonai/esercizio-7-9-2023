@@ -5,7 +5,7 @@ import { Alert, Spinner } from "react-bootstrap";
 
 class CommentArea extends Component {
   state = {
-    review: { comment: [], rate: [], elementId: [] },
+    review: [],
     working: true,
     alert: {
       stato: false,
@@ -29,11 +29,12 @@ class CommentArea extends Component {
         const libro = await risp.json();
         console.log(libro);
         this.setState({
-          review: {
-            comment: libro.map((x) => x.comment),
-            rate: libro.map((x) => x.rate),
-            elementId: libro.map((x) => x._id),
-          },
+          // review: {
+          //   comment: libro.map((x) => x.comment),
+          //   rate: libro.map((x) => x.rate),
+          //   elementId: libro.map((x) => x._id),
+          // },
+          review: libro,
           alert: {
             stato: true,
             variant: "info",

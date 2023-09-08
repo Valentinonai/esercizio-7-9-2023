@@ -6,12 +6,11 @@ class CommentList extends Component {
   render() {
     return (
       <ListGroup>
-        {this.props.review.comment.map((elem, index) => (
+        {this.props.review.map((elem, index) => (
           <SingleComment
-            comment={elem}
+            comment={elem.comment}
             key={`List-${index}`}
-            iD={this.props.iD}
-            elementId={this.props.review.elementId}
+            elementId={elem._id}
             index={index}
             Reload={this.props.Reload}
           />
