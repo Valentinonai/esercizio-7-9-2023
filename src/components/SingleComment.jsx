@@ -11,16 +11,13 @@ class SingleComment extends Component {
   };
   EliminaCommento = async () => {
     try {
-      const risp = await fetch(
-        `https://striveschool-api.herokuapp.com/api/comments/${this.props.elementId[this.props.index]}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY5YjRlMThkM2Q0OTAwMTRjZmQ3ZDQiLCJpYXQiOjE2OTQwODYzNjksImV4cCI6MTY5NTI5NTk2OX0.UMzNavOw7SiIyoEXvdOL_L1zqNhivjz340RkCbm8TtM",
-          },
-        }
-      );
+      const risp = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${this.props.elementId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY5YjRlMThkM2Q0OTAwMTRjZmQ3ZDQiLCJpYXQiOjE2OTQwODYzNjksImV4cCI6MTY5NTI5NTk2OX0.UMzNavOw7SiIyoEXvdOL_L1zqNhivjz340RkCbm8TtM",
+        },
+      });
       if (risp.ok) {
         await risp.json();
         this.setState({
